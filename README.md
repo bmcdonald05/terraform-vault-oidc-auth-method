@@ -8,4 +8,4 @@ Currently it creates the following items:
 - An identity group alias attached to the external identity group for mapping external IdP groups
 
 ## Examples:
-- [Azure Active Directory](https://github.com/bmcdonald05/terraform-vault-oidc-auth-method/tree/master/examples/azure-active-directory)
+- [Azure Active Directory](https://github.com/bmcdonald05/terraform-vault-oidc-auth-method/tree/main/examples/azure-active-directory)
