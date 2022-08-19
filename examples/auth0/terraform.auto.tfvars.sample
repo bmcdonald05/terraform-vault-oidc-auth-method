@@ -1,0 +1,10 @@
+# README: Rename me to terraform.auto.tfvars & add values to the below variables
+
+#Vault cluster auth specific vars
+vault_cluster_addr = "https://my-vault-cluster:8200"
+
+### OIDC specific vars ###
+oidc_client_id        = "a0a8274e....."
+oidc_client_secret    = "n-6.AFT8yHZmUNf...."
+oidc_discovery_url    = "https://<YOUR_AUTH0_DOMAIN>/"
+allowed_redirect_uris = ["http://localhost:8250/oidc/callback", "http://localhost:8200/ui/vault/auth/oidc/oidc/callback "]
