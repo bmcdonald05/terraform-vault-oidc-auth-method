@@ -1,0 +1,11 @@
+# README: Rename me to terraform.auto.tfvars & add values to the below variables
+
+#Vault cluster auth specific vars
+vault_cluster_addr = "https://my-vault-cluster:8200"
+
+### OIDC specific vars ###
+oidc_client_id        = "a0a8274e....."
+oidc_client_secret    = "n-6.AFT8yHZmUNf...."
+oidc_discovery_url    = "https://login.microsoftonline.com/<TENET_UUID>/v2.0"
+allowed_redirect_uris = ["http://localhost:8250/oidc/callback", "http://localhost:8200/ui/vault/auth/oidc/oidc/callback "]
+external_group_identifier = "9e3c3598...."
