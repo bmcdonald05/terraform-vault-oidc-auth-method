@@ -4,6 +4,42 @@ variable "allowed_redirect_uris" {
   default     = [""]
 }
 
+variable "bound_audiences" {
+  type        = list(string)
+  description = "List of aud claims to match against. Any match is sufficient."
+  default     = [""]
+}
+
+variable "bound_claims" {
+  type        = map(string)
+  description = "If set, a map of claims to values to match against. A claim's value must be a string, which may contain one value or multiple comma-separated values, e.g. 'red' or 'red,green,blue'."
+  default     = {}
+}
+
+variable "bound_claims_type" {
+  type        = string
+  description = "How to interpret values in the claims/values map (bound_claims): can be either string (exact match) or glob (wildcard match)."
+  default     = "string"
+}
+
+variable "bound_issuer" {
+  type        = string
+  description = "The value against which to match the iss claim in a JWT."
+  default     = null
+}
+
+variable "bound_subject" {
+  type        = string
+  description = "If set, requires that the sub claim matches this value."
+  default     = null
+}
+
+variable "claim_mappings" {
+  type        = map(string)
+  description = "If set, a map of claims (keys) to be copied to specified metadata fields (values)."
+  default     = {}
+}
+
 variable "enable_debug_log" {
   type        = bool
   description = "Log received OIDC tokens and claims when debug-level logging is active to troubleshoot issues."
@@ -14,6 +50,12 @@ variable "groups_claim" {
   type        = string
   description = "The claim to use to uniquely identify the set of groups to which the user belongs."
   default     = "groups"
+}
+
+variable "namespace_in_state" {
+  type        = bool
+  description = "Pass namespace in the OIDC state parameter instead of as a separate query parameter. With this setting, the allowed redirect URL(s) in Vault and on the provider side should not contain a namespace query parameter."
+  default     = true
 }
 
 variable "no_default_policy" {
@@ -34,10 +76,28 @@ variable "oidc_client_secret" {
   default     = ""
 }
 
+variable "oidc_discovery_ca_pem" {
+  type        = string
+  description = "The CA certificate or chain of certificates, in PEM format, to use to validate connections to the OIDC Discovery URL. If not set, system certificates are used"
+  default     = null
+}
+
 variable "oidc_discovery_url" {
   type        = string
   description = "The OIDC Discovery URL, without any .well-known component (base path)."
   default     = ""
+}
+
+variable "oidc_response_mode" {
+  type        = string
+  description = "The response mode to be used in the OAuth2 request. Allowed values are query and form_post. Defaults to query."
+  default     = null
+}
+
+variable "oidc_response_types" {
+  type        = list(any)
+  description = "List of response types to request. Allowed values are 'code' and 'id_token'. Defaults to ['code']."
+  default     = [""]
 }
 
 variable "oidc_scopes" {
@@ -50,6 +110,12 @@ variable "path" {
   type        = string
   description = "Path to mount the OIDC auth backend"
   default     = "oidc"
+}
+
+variable "provider_config" {
+  type        = map(string)
+  description = "Provider specific handling configuration. All values may be strings, and the provider will convert to the appropriate type when configuring Vault."
+  default     = {}
 }
 
 variable "token_max_ttl" {

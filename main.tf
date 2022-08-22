@@ -13,12 +13,12 @@ resource "vault_jwt_auth_backend" "oidc" {
 resource "vault_jwt_auth_backend_role" "default" {
   backend                 = vault_jwt_auth_backend.oidc.path
   role_name               = "default"
-  token_no_default_policy = var.no_default_policy ? true : false # Should default role be assigned default Vault policy
+  token_no_default_policy = var.no_default_policy # Should default role be assigned default Vault policy
   user_claim              = var.user_claim
   oidc_scopes             = var.oidc_scopes
   groups_claim            = var.groups_claim
   allowed_redirect_uris   = var.allowed_redirect_uris
-  verbose_oidc_logging    = var.enable_debug_log ? true : false # Enable to troubleshoot issues
+  verbose_oidc_logging    = var.enable_debug_log # Enable to troubleshoot issues
   token_ttl               = var.token_ttl
   token_max_ttl           = var.token_max_ttl
 }
