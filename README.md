@@ -9,3 +9,4 @@ Currently it creates the following items:
 
 ## Examples:
 - [Azure Active Directory](https://github.com/bmcdonald05/terraform-vault-oidc-auth-method/tree/main/examples/azure-active-directory)
+- [Auth0](https://github.com/bmcdonald05/terraform-vault-oidc-auth-method/tree/main/examples/auth0)
