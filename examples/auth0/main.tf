@@ -37,7 +37,7 @@ module "root_oidc" {
   user_claim                = "sub"
   groups_claim              = "https://my-vault-cluster.com/roles"
   additional_policies       = [vault_policy.admins.name]
-  external_group_identifier = "vault-admins" # For more info on adding Auth0 roles to user claims view the learn doc [here](https://learn.hashicorp.com/tutorials/vault/oidc-auth?in=vault/auth-methods#create-an-auth0-group)
+  external_group_identifier = "vault-admins"
   group_name                = "auth0-admins"
 }
 

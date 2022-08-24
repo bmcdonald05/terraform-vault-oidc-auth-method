@@ -152,6 +152,6 @@ variable "external_group_identifier" {
 
 variable "group_name" {
   type        = string
-  description = "Name of the external identity group to create; defaults to 'oidc-admins-group'."
+  description = "The actual name of the external identity group to create; defaults to 'oidc-admins-group'."
   default     = "oidc-admins-group"
 }
