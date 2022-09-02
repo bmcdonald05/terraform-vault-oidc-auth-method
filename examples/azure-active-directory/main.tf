@@ -1,4 +1,5 @@
 resource "vault_policy" "admins" {
+  # namespace = "test"
   name   = "vault-admins"
   policy = <<EOT
 #vault-admin.hcl
@@ -29,6 +30,7 @@ EOT
 module "root_oidc" {
   source = "../../"
 
+  # namespace                 = "test" #Namespace to create resources in (if desired)
   oidc_discovery_url        = var.oidc_discovery_url
   oidc_client_id            = var.oidc_client_id
   oidc_client_secret        = var.oidc_client_secret

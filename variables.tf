@@ -52,6 +52,18 @@ variable "groups_claim" {
   default     = "groups"
 }
 
+# variable "listing_visibility" {
+#   type        = string
+#   description = "Specifies whether to show this mount in the UI-specific listing endpoint. Valid values are 'unauth' or 'hidden'."
+#   default     = null
+# }
+
+variable "namespace" {
+  type        = string
+  description = "The namespace to provision the resource in for newer 'simple' namespace definitions. The value should not contain leading or trailing forward slashes."
+  default     = null
+}
+
 variable "namespace_in_state" {
   type        = bool
   description = "Pass namespace in the OIDC state parameter instead of as a separate query parameter. With this setting, the allowed redirect URL(s) in Vault and on the provider side should not contain a namespace query parameter."
